@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layanan Konseling Sahabat BKPI | UIBN Tegal</title>
+  <meta name="description" content="Layanan Konseling Ramah & Rahasia untuk Mahasiswa Universitas Islam Bakti Negara Tegal oleh HMPS Bimbingan dan Konseling Pendidikan Islam.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            uibn: {
+              green: '#15803d',
+              darkgreen: '#0f5132',
+              lightgreen: '#22c55e',
+              softgreen: '#f0fdf4',
+              yellow: '#eab308',
+              warmyellow: '#facc15',
+              softyellow: '#fefce8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-uibn-yellow selection:text-uibn-darkgreen">
+
+  <!-- ================= TOP BAR INFO ================= -->
+  <div class="bg-uibn-darkgreen text-white text-xs py-2 px-4 border-b border-uibn-yellow/30">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center space-x-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-uibn-warmyellow animate-pulse"></span>
+        <span>Ruang Konseling Aman &amp; Terbuka untuk Seluruh Mahasiswa UIBN Tegal</span>
+      </div>
+      <div class="flex items-center space-x-4 text-slate-200">
+        <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-uibn-warmyellow"></i> 100% Asas Kerahasiaan</span>
+        <span class="hidden sm:inline">|</span>
+        <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-uibn-warmyellow"></i> Slawi, Tegal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-emerald-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      
+      <!-- Brand & Logos -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <!-- Dual Logos: Campus & HMPS -->
+        <div class="flex items-center space-x-2">
+          <img src="assets/images/logo-uibn.jpg" alt="Logo UIBN Tegal" class="h-11 sm:h-12 w-auto object-contain rounded-lg p-0.5 border border-emerald-100 bg-white transition-transform group-hover:scale-105" title="Universitas Islam Bakti Negara Tegal">
+          <img src="assets/images/logo-hmps-bkpi.jpg" alt="Logo HMPS BKPI" class="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-emerald-300 shadow-sm transition-transform group-hover:scale-105" title="HMPS BKPI UIBN Tegal">
+        </div>
+        <div class="border-l-2 border-emerald-200 pl-3">
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold text-base tracking-tight text-uibn-darkgreen">Ruang Sahabat BKPI</span>
+            <span class="bg-uibn-warmyellow text-uibn-darkgreen text-[10px] font-bold px-1.5 py-0.5 rounded-full">Konseling</span>
+          </div>
+          <p class="text-[11px] text-gray-500 font-medium">HMPS BKPI • Universitas Islam Bakti Negara Tegal</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-semibold text-slate-700">
+        <a href="#tentang" class="hover:text-uibn-green transition-colors">Tentang Kami</a>
+        <a href="#layanan" class="hover:text-uibn-green transition-colors">Layanan</a>
+        <a href="#cek-emosi" class="hover:text-uibn-green transition-colors flex items-center gap-1">
+          <i class="fas fa-sparkles text-uibn-yellow"></i> Cek Emosi
+        </a>
+        <a href="#curhat-anonim" class="hover:text-uibn-green transition-colors">Curhat Anonim</a>
+        <a href="#faq" class="hover:text-uibn-green transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Desktop Action CTA -->
+      <div class="hidden md:flex items-center space-x-3">
+        <a href="#reservasi" class="bg-uibn-green hover:bg-uibn-darkgreen text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all flex items-center space-x-2 border border-uibn-warmyellow/50">
+          <i class="fas fa-calendar-check text-uibn-warmyellow"></i>
+          <span>Jadwalkan Sesi</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-uibn-darkgreen text-2xl p-2 rounded-lg hover:bg-emerald-50 focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-emerald-100 px-6 py-4 space-y-3 text-sm font-semibold text-slate-700 shadow-xl">
+      <a href="#tentang" class="block py-2 hover:text-uibn-green">Tentang Kami</a>
+      <a href="#layanan" class="block py-2 hover:text-uibn-green">Layanan Konseling</a>
+      <a href="#cek-emosi" class="block py-2 hover:text-uibn-green">Cek Beban Emosi (Kuis)</a>
+      <a href="#curhat-anonim" class="block py-2 hover:text-uibn-green">Curhat Singkat Anonim</a>
+      <a href="#faq" class="block py-2 hover:text-uibn-green">Tanya Jawab (FAQ)</a>
+      <div class="pt-2">
+        <a href="#reservasi" class="block text-center bg-uibn-green text-white font-bold py-2.5 rounded-full shadow">
+          Jadwalkan Konseling Sekarang
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-emerald-50/80 via-white to-slate-50 py-16 sm:py-24 border-b border-emerald-100/60">
+    <!-- Decorative Floating Shapes -->
+    <div class="absolute -top-12 -right-12 w-96 h-96 bg-uibn-warmyellow/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-12 w-80 h-80 bg-uibn-green/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Copywriting -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-full border border-emerald-200 shadow-sm text-xs font-bold text-uibn-darkgreen">
+            <span class="w-2.5 h-2.5 rounded-full bg-uibn-yellow"></span>
+            Ruang Cerita Mahasiswa UIBN Tegal
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Kamu Tidak Harus Memikul <br class="hidden sm:inline">
+            <span class="text-uibn-green underline decoration-uibn-warmyellow decoration-4 underline-offset-4">Semuanya Sendirian.</span>
+          </h1>
+
+          <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Lelah dengan tugas kuliah, skripsi, bingung arah karir, atau sedang menghadapi masalah yang bikin sesak? Ruang Sahabat BKPI UIBN hadir sebagai telinga yang tulus mendengar tanpa menghakimi.
+          </p>
+
+          <!-- Core Values Badges -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 text-xs font-semibold text-slate-700">
+            <div class="flex items-center gap-1.5 bg-emerald-100/60 text-emerald-800 px-3 py-1.5 rounded-lg border border-emerald-200">
+              <i class="fas fa-lock text-uibn-yellow"></i> 100% Rahasia Terjamin
+            </div>
+            <div class="flex items-center gap-1.5 bg-yellow-100/70 text-yellow-900 px-3 py-1.5 rounded-lg border border-yellow-200">
+              <i class="fas fa-heart text-emerald-600"></i> Bebas Stigma &amp; Menghakimi
+            </div>
+            <div class="flex items-center gap-1.5 bg-white text-slate-700 px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
+              <i class="fas fa-wallet text-uibn-green"></i> Gratis Mahasiswa UIBN
+            </div>
+          </div>
+
+          <!-- Hero CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-3">
+            <a href="#reservasi" class="w-full sm:w-auto text-center bg-uibn-green hover:bg-uibn-darkgreen text-white font-bold px-7 py-3.5 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
+              <span>Mulai Sesi Konseling</span>
+              <i class="fas fa-arrow-right text-uibn-warmyellow text-sm group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <a href="#cek-emosi" class="w-full sm:w-auto text-center bg-white hover:bg-slate-50 text-slate-700 font-bold px-6 py-3.5 rounded-2xl border border-slate-200 shadow-sm hover:border-emerald-300 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-smile text-uibn-yellow"></i>
+              <span>Cek Beban Emosi (1 Menit)</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Visual Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="bg-white rounded-3xl p-6 shadow-xl border border-emerald-100 relative overflow-hidden">
+            <!-- Background accent banner -->
+            <div class="h-28 -mx-6 -mt-6 bg-gradient-to-r from-uibn-darkgreen via-uibn-green to-emerald-700 relative p-6 flex items-start justify-between">
+              <div>
+                <span class="bg-uibn-warmyellow text-uibn-darkgreen font-extrabold text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Teman Sebaya &amp; Dosen BKPI
+                </span>
+                <h3 class="text-white font-bold text-lg mt-1">Konseling Holistik Islami</h3>
+              </div>
+              <i class="fas fa-hands-helping text-4xl text-uibn-warmyellow/80"></i>
+            </div>
+
+            <!-- Card Content Body -->
+            <div class="pt-5 space-y-4">
+              <div class="flex items-center space-x-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-uibn-green flex items-center justify-center text-lg">
+                  <i class="fas fa-user-friends"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-slate-800">Peer Counseling (Konselor Sebaya)</h4>
+                  <p class="text-xs text-slate-500">Ngobrol santai tanpa sekat dengan mahasiswa BKPI terlatih.</p>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                <div class="w-10 h-10 rounded-xl bg-yellow-100 text-yellow-700 flex items-center justify-center text-lg">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-slate-800">Dosen Pembimbing BKPI</h4>
+                  <p class="text-xs text-slate-500">Pendampingan mendalam untuk permasalahan kompleks.</p>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-uibn-green flex items-center justify-center text-lg">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-slate-800">Bebas Pakai Nama Samaran</h4>
+                  <p class="text-xs text-slate-500">Malu? Kamu bisa gunakan inisial untuk privasi penuh.</p>
+                </div>
+              </div>
+
+              <!-- Quick Quote -->
+              <div class="bg-uibn-softyellow border border-yellow-200/80 rounded-2xl p-3.5 text-center">
+                <p class="text-xs text-amber-900 font-medium italic">
+                  "Dan janganlah kamu berputus asa dari rahmat Allah..."
+                </p>
+                <span class="text-[10px] text-amber-700 font-bold block mt-1">(QS. Yusuf: 87)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= JAMINAN ASAS KERAHASIAAN ================= -->
+  <section id="tentang" class="py-12 bg-white border-b border-emerald-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="bg-gradient-to-r from-uibn-darkgreen via-emerald-800 to-uibn-green rounded-3xl p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
+        
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-8 space-y-3">
+            <div class="inline-flex items-center gap-2 bg-uibn-warmyellow text-uibn-darkgreen font-extrabold text-xs px-3 py-1 rounded-full">
+              <i class="fas fa-certificate"></i> Komitmen Etik BK
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+              Asas Kerahasiaan Adalah Nafas Kami
+            </h2>
+            <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+              Di Bimbingan dan Konseling Pendidikan Islam (BKPI) UIBN Tegal, cerita, data diri, dan keluh kesahmu tidak akan pernah disebarluaskan kepada teman sebaya, dosen pengampu, maupun pihak luar. Kamu berhak merasa aman 100%.
+            </p>
+          </div>
+
+          <div class="md:col-span-4 flex flex-col items-center justify-center p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 text-center">
+            <div class="w-14 h-14 bg-uibn-warmyellow text-uibn-darkgreen rounded-full flex items-center justify-center text-2xl mb-3 shadow-md">
+              <i class="fas fa-user-secret"></i>
+            </div>
+            <h4 class="font-bold text-white text-base">Ruang Rahasia Konseli</h4>
+            <p class="text-xs text-emerald-200 mt-1">Hanya kamu dan konselormu yang mengetahui jalannya sesi.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LAYANAN KONSELING ================= -->
+  <section id="layanan" class="py-16 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
+        <span class="text-uibn-green font-extrabold text-xs uppercase tracking-wider bg-emerald-100 px-3 py-1 rounded-full">
+          Fokus Layanan
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          Apa yang Sedang Mengganjal di Hatimu?
+        </h2>
+        <p class="text-slate-600 text-sm">
+          Semua keluhanmu valid. Kami menyediakan berbagai ruang konseling sesuai dengan kebutuhan spesifikmu.
+        </p>
+      </div>
+
+      <!-- Services Grid (Klik untuk Pilih Layanan) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-emerald-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Akademik & Skripsi">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-uibn-green flex items-center justify-center text-xl mb-4 group-hover:bg-uibn-green group-hover:text-white transition-colors">
+              <i class="fas fa-book-reader"></i>
+            </div>
+            <h3 class="font-bold text-base text-slate-900 mb-2">Konseling Akademik &amp; Skripsi</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Stuck skripsi, burnout tugas kuliah, motivasi belajar menurun, hingga cemas menghadapi ujian atau seminar.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-uibn-green group-hover:text-uibn-darkgreen">
+            <span>Pilih Layanan Ini</span>
+            <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-yellow-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Overthinking & Emosi Pribadi">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl mb-4 group-hover:bg-uibn-yellow group-hover:text-uibn-darkgreen transition-colors">
+              <i class="fas fa-heart-broken"></i>
+            </div>
+            <h3 class="font-bold text-base text-slate-900 mb-2">Pribadi &amp; Regulasi Emosi</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Overthinking tiap malam, rasa cemas berlebih, trauma masa lalu, kesepian, dan pencarian makna diri.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-yellow-600 group-hover:text-yellow-700">
+            <span>Pilih Layanan Ini</span>
+            <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-emerald-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Pertemanan & Hubungan Sosial">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-uibn-green flex items-center justify-center text-xl mb-4 group-hover:bg-uibn-green group-hover:text-white transition-colors">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="font-bold text-base text-slate-900 mb-2">Sosial &amp; Pertemanan</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Sulit beradaptasi di lingkungan kampus, konflik sesama teman, masalah hubungan asmara, atau *toxic relationship*.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-uibn-green group-hover:text-uibn-darkgreen">
+            <span>Pilih Layanan Ini</span>
+            <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-yellow-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Arah Karir & Masa Depan">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl mb-4 group-hover:bg-uibn-yellow group-hover:text-uibn-darkgreen transition-colors">
+              <i class="fas fa-compass"></i>
+            </div>
+            <h3 class="font-bold text-base text-slate-900 mb-2">Arah Karir &amp; Masa Depan</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Kebingungan setelah lulus kuliah, *quarter-life crisis*, eksplorasi bakat, minat kerja, dan potensi diri.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-yellow-600 group-hover:text-yellow-700">
+            <span>Pilih Layanan Ini</span>
+            <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Format Sesi Pilihan (Bisa diklik untuk memilih) -->
+      <div class="mt-12 bg-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-sm">
+        <h3 class="text-base font-bold text-slate-900 mb-2 text-center">Tersedia Dalam 3 Format Fleksibel:</h3>
+        <p class="text-xs text-slate-400 text-center mb-6">Klik salah satu format di bawah untuk langsung mengisinya di formulir</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+          <div class="format-card p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200 cursor-pointer hover:border-emerald-500 hover:shadow-md transition-all group" data-mode="Online Chat (WhatsApp)">
+            <i class="fas fa-comments text-2xl text-uibn-green mb-2 group-hover:scale-110 transition-transform"></i>
+            <h4 class="font-bold text-sm text-slate-800">Online Chat (WhatsApp)</h4>
+            <p class="text-xs text-slate-500 mt-1">Cocok untuk yang masih malu bicara langsung.</p>
+            <span class="inline-block mt-3 text-[11px] font-bold text-uibn-green bg-white px-3 py-1 rounded-full shadow-sm">Pilih Format Ini</span>
+          </div>
+          <div class="format-card p-4 rounded-2xl bg-yellow-50/60 border border-yellow-200 cursor-pointer hover:border-yellow-500 hover:shadow-md transition-all group" data-mode="Google Meet / Video Call">
+            <i class="fas fa-video text-2xl text-yellow-600 mb-2 group-hover:scale-110 transition-transform"></i>
+            <h4 class="font-bold text-sm text-slate-800">Virtual (Google Meet)</h4>
+            <p class="text-xs text-slate-500 mt-1">Bisa dari kos atau rumah secara fleksibel.</p>
+            <span class="inline-block mt-3 text-[11px] font-bold text-yellow-700 bg-white px-3 py-1 rounded-full shadow-sm">Pilih Format Ini</span>
+          </div>
+          <div class="format-card p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200 cursor-pointer hover:border-emerald-500 hover:shadow-md transition-all group" data-mode="Tatap Muka di Ruang BKPI">
+            <i class="fas fa-couch text-2xl text-uibn-green mb-2 group-hover:scale-110 transition-transform"></i>
+            <h4 class="font-bold text-sm text-slate-800">Tatap Muka di Kampus</h4>
+            <p class="text-xs text-slate-500 mt-1">Ruang konseling nyaman &amp; privat di UIBN Slawi.</p>
+            <span class="inline-block mt-3 text-[11px] font-bold text-uibn-green bg-white px-3 py-1 rounded-full shadow-sm">Pilih Format Ini</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CEK EMOSI & BEBAN PIKIRAN (INTERACTIVE) ================= -->
+  <section id="cek-emosi" class="py-16 bg-white border-y border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center space-y-3 mb-10">
+        <span class="text-uibn-darkgreen font-extrabold text-xs uppercase tracking-wider bg-uibn-warmyellow/30 px-3 py-1 rounded-full">
+          Fitur Interaktif
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          Cek Beban Pikiran &amp; Emosimu Hari Ini
+        </h2>
+        <p class="text-slate-600 text-sm max-w-xl mx-auto">
+          Bingung mengartikan apa yang sedang kamu rasakan? Jawab 4 pertanyaan sederhana ini untuk melihat gambaran kondisi emosionalmu saat ini (100% anonim).
+        </p>
+      </div>
+
+      <!-- Quiz Card -->
+      <div class="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-emerald-100 shadow-md">
+        <form id="selfQuizForm" class="space-y-6">
+          
+          <!-- Question 1 -->
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-slate-800">
+              1. Seberapa sering kamu merasa cemas atau overthinking akhir-akhir ini?
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q1" value="1" checked class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Jarang / Terkendali</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q1" value="2" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Kadang-kadang mengganggu</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q1" value="3" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Sering sekali &amp; bikin lelah</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-slate-800">
+              2. Bagaimana pola tidur dan istirahatmu seminggu terakhir?
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q2" value="1" checked class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Cukup &amp; nyenyak</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q2" value="2" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Sulit tidur / sering terbangun</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q2" value="3" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Berantakan &amp; bangun selalu lemas</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-slate-800">
+              3. Apakah kamu punya seseorang yang bisa diajak cerita secara terbuka?
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q3" value="1" checked class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Ada sahabat/keluarga</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q3" value="2" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Ada, tapi ragu bercerita</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q3" value="3" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Tidak ada / memendam sendiri</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-slate-800">
+              4. Bagaimana semangat dan motivasimu menjalani perkuliahan saat ini?
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q4" value="1" checked class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Cukup bersemangat</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q4" value="2" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Mulai jenuh dan capek</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300">
+                <input type="radio" name="q4" value="3" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs text-slate-700">Kehilangan motivasi sama sekali</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Submit Quiz Button -->
+          <button type="submit" class="w-full bg-uibn-darkgreen hover:bg-uibn-green text-white font-bold py-3.5 rounded-2xl shadow transition-all flex items-center justify-center space-x-2">
+            <i class="fas fa-chart-pie text-uibn-warmyellow"></i>
+            <span>Lihat Hasil Analisis Sederhana</span>
+          </button>
+        </form>
+
+        <!-- Quiz Result Container -->
+        <div id="quizResult" class="hidden mt-6"></div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= KOTAK CURHAT ANONIM ================= -->
+  <section id="curhat-anonim" class="py-14 bg-gradient-to-b from-slate-50 to-emerald-50/50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      
+      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-emerald-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-yellow-100 text-uibn-darkgreen flex items-center justify-center text-lg font-bold">
+            <i class="fas fa-feather-alt text-yellow-600"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-slate-900">Kotak Curhat Anonim</h3>
+            <p class="text-xs text-slate-500">Belum siap bikin janji konseling? Tumpahkan sedikit unek-unekmu di sini tanpa identitas.</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <textarea id="ventText" rows="3" placeholder="Tulis apa saja yang sedang membuatmu sesak atau lelah hari ini... (Tidak perlu sebutkan nama)" class="w-full text-sm p-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-uibn-green resize-none"></textarea>
+          
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] text-slate-400">
+              <i class="fas fa-eye-slash mr-1"></i> Data teks tidak dipublikasikan ke mana pun.
+            </span>
+            <button id="sendVentBtn" class="bg-uibn-yellow hover:bg-yellow-400 text-uibn-darkgreen font-bold text-xs px-5 py-2.5 rounded-xl shadow transition-all flex items-center gap-1.5">
+              <span>Lepaskan Beban</span>
+              <i class="fas fa-paper-plane text-[10px]"></i>
+            </button>
+          </div>
+
+          <!-- Vent Feedback Box -->
+          <div id="ventFeedback" class="hidden mt-4"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FORMULIR RESERVASI KONSELING ================= -->
+  <section id="reservasi" class="py-16 bg-white border-t border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-xl mx-auto space-y-2 mb-10">
+        <span class="text-uibn-green font-extrabold text-xs uppercase tracking-wider bg-emerald-100 px-3 py-1 rounded-full">
+          Formulir Janji Temu
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          Jadwalkan Sesi Konselingmu
+        </h2>
+        <p class="text-slate-500 text-sm">
+          Pilih waktu yang nyaman untukmu. Proses pendaftaran hanya memakan waktu 1 menit.
+        </p>
+      </div>
+
+      <!-- Booking Form Card -->
+      <div class="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-emerald-100 shadow-md">
+        
+        <form id="bookingForm" class="space-y-6">
+          
+          <!-- Identity & Anonymous Option -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <label for="clientName" class="text-sm font-bold text-slate-800">
+                Nama Lengkap / Nama Panggilan
+              </label>
+              <label class="flex items-center space-x-2 text-xs font-semibold text-uibn-green cursor-pointer">
+                <input type="checkbox" id="anonToggle" class="rounded text-uibn-green focus:ring-uibn-green">
+                <span>Gunakan Inisial / Nama Samaran</span>
+              </label>
+            </div>
+            <input type="text" id="clientName" required placeholder="Contoh: Fulan / Teman UIBN" class="w-full text-sm p-3.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-uibn-green bg-white">
+          </div>
+
+          <!-- Contact (WhatsApp) -->
+          <div class="space-y-2">
+            <label for="clientContact" class="text-sm font-bold text-slate-800">
+              Nomor WhatsApp (Untuk Konfirmasi Jadwal)
+            </label>
+            <input type="tel" id="clientContact" required placeholder="08xxxxxxxxxx" class="w-full text-sm p-3.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-uibn-green bg-white">
+            <p class="text-[11px] text-slate-400">Nomor hanya digunakan untuk mengirimkan link/konfirmasi jam sesi oleh konselor.</p>
+          </div>
+
+          <!-- Topic Selection -->
+          <div class="space-y-2">
+            <label for="counselingTopic" class="text-sm font-bold text-slate-800">
+              Topik yang Ingin Dibicarakan
+            </label>
+            <select id="counselingTopic" class="w-full text-sm p-3.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-uibn-green bg-white">
+              <option value="Akademik & Skripsi">Akademik &amp; Beban Skripsi</option>
+              <option value="Overthinking & Emosi Pribadi">Overthinking &amp; Emosi Pribadi</option>
+              <option value="Pertemanan & Hubungan Sosial">Pertemanan &amp; Hubungan Sosial</option>
+              <option value="Arah Karir & Masa Depan">Arah Karir &amp; Masa Depan</option>
+              <option value="Lainnya">Lainnya (Bisa diceritakan saat sesi)</option>
+            </select>
+          </div>
+
+          <!-- Counseling Mode -->
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-slate-800 block">
+              Pilihan Metode Konseling
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <label class="flex items-center space-x-2 bg-white p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-400">
+                <input type="radio" name="counselingMode" value="Tatap Muka di Ruang BKPI" checked class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs font-semibold text-slate-700">Tatap Muka di Kampus</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-400">
+                <input type="radio" name="counselingMode" value="Online Chat (WhatsApp)" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs font-semibold text-slate-700">Online Chat</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-white p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-400">
+                <input type="radio" name="counselingMode" value="Google Meet / Video Call" class="text-uibn-green focus:ring-uibn-green">
+                <span class="text-xs font-semibold text-slate-700">Google Meet</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Counselor Preference -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="counselorSelect" class="text-sm font-bold text-slate-800">
+                Preferensi Konselor
+              </label>
+              <select id="counselorSelect" class="w-full text-sm p-3.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-uibn-green bg-white">
+                <option value="Konselor Sebaya (Mahasiswa BKPI)">Konselor Sebaya (Mahasiswa BKPI)</option>
+                <option value="Dosen BKPI UIBN Tegal">Dosen Pembimbing BKPI</option>
+                <option value="Bebas / Siapa Saja yang Siap">Bebas / Siapa Saja yang Siap</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label for="sessionDate" class="text-sm font-bold text-slate-800">
+                Prakiraan Hari / Tanggal yang Kamu Nyaman
+              </label>
+              <input type="date" id="sessionDate" class="w-full text-sm p-3.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-uibn-green bg-white">
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="w-full bg-uibn-green hover:bg-uibn-darkgreen text-white font-extrabold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2 border border-uibn-warmyellow/40">
+            <i class="fas fa-check-circle text-uibn-warmyellow"></i>
+            <span>Kirim Permohonan Konseling (Aman &amp; Rahasia)</span>
+          </button>
+
+          <p class="text-center text-[11px] text-slate-400">
+            <i class="fas fa-info-circle mr-1 text-emerald-600"></i> Konselor kami akan menghubungimu secara privat maksimal 1x24 jam untuk pencocokan jam temu.
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= MODAL KONFIRMASI RESERVASI ================= -->
+  <div id="bookingModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-emerald-100 text-center space-y-4 animate-float">
+      
+      <div class="w-16 h-16 bg-emerald-100 text-uibn-green rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+        <i class="fas fa-heart text-emerald-600"></i>
+      </div>
+
+      <h3 class="text-xl font-extrabold text-slate-900">Permohonan Berhasil Dibuat!</h3>
+      <p class="text-xs text-slate-600 leading-relaxed">
+        Terima kasih telah berani melangkah. Rincian jadwalmu sudah kami siapkan dengan aman. Kamu bisa langsung mengirimkannya ke WhatsApp konselor agar segera direspon:
+      </p>
+
+      <div id="modalSummary" class="text-left"></div>
+
+      <!-- Action Buttons in Modal -->
+      <div class="space-y-2 pt-2">
+        <a id="modalWaBtn" href="#" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 px-4 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 text-sm border border-emerald-400">
+          <i class="fab fa-whatsapp text-lg text-uibn-warmyellow"></i>
+          <span>Kirim Rincian ke WhatsApp Konselor</span>
+        </a>
+
+        <button id="modalCloseBtn" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold py-2.5 rounded-2xl transition-all text-xs">
+          Tutup &amp; Simpan Formulir
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= FAQ SECTION (INTERACTIVE ACCORDION) ================= -->
+  <section id="faq" class="py-16 bg-slate-50 border-t border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center space-y-2 mb-10">
+        <span class="text-uibn-green font-extrabold text-xs uppercase tracking-wider bg-emerald-100 px-3 py-1 rounded-full">
+          Bantuan Informasi
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          Pertanyaan yang Sering Diajukan (FAQ)
+        </h2>
+        <p class="text-slate-500 text-sm">
+          Klik pada pertanyaan di bawah untuk melihat jawabannya:
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all hover:border-emerald-300">
+          <button type="button" class="faq-toggle w-full p-5 text-left font-bold text-sm text-slate-800 flex items-center justify-between hover:text-uibn-green transition-colors focus:outline-none">
+            <span class="flex items-center gap-2.5">
+              <i class="fas fa-question-circle text-uibn-green"></i>
+              <span>Apakah konseling ini benar-benar gratis?</span>
+            </span>
+            <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 pt-1 text-xs text-slate-600 border-t border-slate-100 pl-11 leading-relaxed bg-slate-50/60">
+            Ya, 100% gratis untuk seluruh mahasiswa aktif Universitas Islam Bakti Negara Tegal. Layanan ini merupakan bagian dari dedikasi dan pengabdian HMPS BKPI serta Prodi BKPI UIBN Tegal untuk kesehatan mental kampus.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all hover:border-emerald-300">
+          <button type="button" class="faq-toggle w-full p-5 text-left font-bold text-sm text-slate-800 flex items-center justify-between hover:text-uibn-green transition-colors focus:outline-none">
+            <span class="flex items-center gap-2.5">
+              <i class="fas fa-shield-alt text-uibn-green"></i>
+              <span>Apakah dosen atau teman kelas saya akan tahu cerita saya?</span>
+            </span>
+            <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 pt-1 text-xs text-slate-600 border-t border-slate-100 pl-11 leading-relaxed bg-slate-50/60">
+            Tidak akan pernah. Kode etik Bimbingan dan Konseling menjamin <strong>Asas Kerahasiaan</strong> identitas dan isi pembicaraan. Kamu juga bebas memilih opsi menggunakan nama inisial/samaran jika masih merasa canggung.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all hover:border-emerald-300">
+          <button type="button" class="faq-toggle w-full p-5 text-left font-bold text-sm text-slate-800 flex items-center justify-between hover:text-uibn-green transition-colors focus:outline-none">
+            <span class="flex items-center gap-2.5">
+              <i class="fas fa-heart text-uibn-green"></i>
+              <span>Masalah saya terasa sepele, apakah tetap boleh konseling?</span>
+            </span>
+            <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 pt-1 text-xs text-slate-600 border-t border-slate-100 pl-11 leading-relaxed bg-slate-50/60">
+            Tentu saja boleh! Tidak ada masalah yang terlalu sepele jika hal itu sudah membuat pikiranmu lelah, tidurmu terganggu, atau harimu terasa berat. Pintu kami selalu terbuka lebar untuk mendengarkan.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all hover:border-emerald-300">
+          <button type="button" class="faq-toggle w-full p-5 text-left font-bold text-sm text-slate-800 flex items-center justify-between hover:text-uibn-green transition-colors focus:outline-none">
+            <span class="flex items-center gap-2.5">
+              <i class="fas fa-map-marker-alt text-uibn-green"></i>
+              <span>Di mana lokasi ruang konseling jika saya memilih tatap muka?</span>
+            </span>
+            <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 pt-1 text-xs text-slate-600 border-t border-slate-100 pl-11 leading-relaxed bg-slate-50/60">
+            Ruang Konseling Kampus UIBN Tegal beralamat di Jl. Jeruk No.9, Kel. Procot, Kec. Slawi, Kab. Tegal. Konselor bertugas akan memandu titik temu secara privat agar kamu merasa nyaman tanpa sorotan orang lain.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-uibn-darkgreen text-white pt-14 pb-8 border-t-4 border-uibn-warmyellow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-emerald-800/80">
+        
+        <!-- Identity -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center space-x-3 bg-white/10 p-2.5 rounded-2xl backdrop-blur-sm border border-white/20 w-fit">
+            <img src="assets/images/logo-uibn.jpg" alt="Logo UIBN Tegal" class="h-12 w-auto object-contain rounded-lg bg-white p-1 shadow-sm">
+            <img src="assets/images/logo-hmps-bkpi.jpg" alt="Logo HMPS BKPI" class="w-12 h-12 rounded-full object-cover border-2 border-uibn-warmyellow shadow-sm">
+            <div>
+              <h3 class="font-bold text-base text-white">HMPS BKPI UIBN TEGAL</h3>
+              <p class="text-xs text-uibn-warmyellow font-semibold">Bimbingan &amp; Konseling Pendidikan Islam</p>
+            </div>
+          </div>
+          <p class="text-xs text-emerald-100/80 leading-relaxed">
+            Mewujudkan iklim kampus yang sehat mental, berkarakter Islami, dan saling menguatkan antar sesama sivitas akademika Universitas Islam Bakti Negara Tegal.
+          </p>
+        </div>
+
+        <!-- Campus Address -->
+        <div class="md:col-span-4 space-y-2 text-xs text-emerald-100">
+          <h4 class="font-bold text-sm text-uibn-warmyellow uppercase tracking-wider mb-2">Lokasi Kampus</h4>
+          <p class="flex items-start gap-2">
+            <i class="fas fa-map-marker-alt text-uibn-warmyellow mt-0.5"></i>
+            <span>Jl. Jeruk No.9, Procot, Kec. Slawi, Kabupaten Tegal, Jawa Tengah 52411</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fas fa-globe text-uibn-warmyellow"></i>
+            <span>Website: ibntegal.ac.id</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fab fa-instagram text-uibn-warmyellow"></i>
+            <span>Instagram: @ibn_tegal &amp; @hmpsbkpi_uibn</span>
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="md:col-span-3 space-y-2 text-xs text-emerald-100">
+          <h4 class="font-bold text-sm text-uibn-warmyellow uppercase tracking-wider mb-2">Akses Cepat</h4>
+          <ul class="space-y-1.5">
+            <li><a href="#reservasi" class="hover:text-uibn-warmyellow transition-colors">• Jadwal Konseling</a></li>
+            <li><a href="#cek-emosi" class="hover:text-uibn-warmyellow transition-colors">• Cek Beban Emosi</a></li>
+            <li><a href="#curhat-anonim" class="hover:text-uibn-warmyellow transition-colors">• Kotak Curhat Anonim</a></li>
+            <li><a href="#tentang" class="hover:text-uibn-warmyellow transition-colors">• Komitmen Kerahasiaan</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Note -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-emerald-200/70 gap-2">
+        <p>© 2026 HMPS BKPI Universitas Islam Bakti Negara Tegal. Hak Cipta Dilindungi.</p>
+        <p class="text-[11px] text-yellow-300/80">
+          <i class="fas fa-heart text-red-400 mr-1"></i> Dibuat dengan cinta untuk kesehatan mental mahasiswa.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING WHATSAPP CHAT BUTTON ================= -->
+  <a href="https://wa.me/62882006744363?text=Assalamu%27alaikum%20Kak%20Sahabat%20BKPI%20UIBN%20Tegal,%20saya%20ingin%20bertanya%20mengenai%20layanan%20konseling..." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2.5 border-2 border-uibn-warmyellow transition-all hover:scale-105 group" title="Chat Langsung via WhatsApp">
+    <div class="w-8 h-8 bg-white text-emerald-600 rounded-full flex items-center justify-center text-lg shadow-sm">
+      <i class="fab fa-whatsapp"></i>
+    </div>
+    <div class="text-left hidden sm:block">
+      <span class="block text-[10px] text-emerald-100 font-normal leading-none">Butuh Teman Cerita?</span>
+      <span class="text-xs font-bold text-white tracking-wide">Chat Sahabat BKPI</span>
+    </div>
+  </a>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+</body>
+</html>
