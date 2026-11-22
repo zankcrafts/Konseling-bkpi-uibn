@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15803d" />
+      <stop offset="100%" stop-color="#0f5132" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Ring (Gold) -->
+  <circle cx="100" cy="100" r="95" fill="#ffffff" stroke="url(#goldGrad)" stroke-width="6"/>
+  <!-- Inner Ring (Green) -->
+  <circle cx="100" cy="100" r="85" fill="url(#greenGrad)" stroke="#fef08a" stroke-width="2"/>
+  
+  <!-- Text Ring Path (Simplified Emblem Base) -->
+  <circle cx="100" cy="100" r="70" fill="#ffffff" stroke="url(#goldGrad)" stroke-width="3"/>
+
+  <!-- Islamic Dome & Book/Torch Motif -->
+  <!-- Dome -->
+  <path d="M 75 90 C 75 60, 100 45, 100 45 C 100 45, 125 60, 125 90 Z" fill="url(#greenGrad)" />
+  <!-- Crescent & Star on top of dome -->
+  <circle cx="100" cy="40" r="6" fill="#eab308" />
+  <polygon points="100,32 102,37 107,37 103,40 105,45 100,42 95,45 97,40 93,37 98,37" fill="#ffffff" />
+  
+  <!-- Open Book (Al-Qur'an / Science) -->
+  <path d="M 65 105 Q 100 95, 100 115 Q 100 95, 135 105 L 135 125 Q 100 115, 100 135 Q 100 115, 65 125 Z" fill="#eab308" stroke="#15803d" stroke-width="2"/>
+  <path d="M 68 107 Q 98 98, 98 116 L 98 132 Q 68 123, 68 107 Z" fill="#ffffff"/>
+  <path d="M 132 107 Q 102 98, 102 116 L 102 132 Q 132 123, 132 107 Z" fill="#ffffff"/>
+
+  <!-- University Acronym Badge -->
+  <rect x="60" y="142" width="80" height="22" rx="11" fill="url(#greenGrad)" stroke="#facc15" stroke-width="1.5" />
+  <text x="100" y="157" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">UIBN TEGAL</text>
+  
+  <!-- Ribbon Arc Top -->
+  <text x="100" y="24" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="700" fill="#15803d" text-anchor="middle" letter-spacing="0.5">UNIVERSITAS ISLAM</text>
+  <text x="100" y="185" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#15803d" text-anchor="middle" letter-spacing="0.5">BAKTI NEGARA</text>
+</svg>
