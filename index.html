@@ -101,6 +101,89 @@ html {
   box-shadow: 0 0 20px rgba(21, 128, 61, 0.25);
 }
 
+/* ================= ANIMASI BERGERAK & TRANSISI ================= */
+/* 1. Scroll Reveal (Muncul bergerak halus saat di-scroll) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 2. Floating Gentle */
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+.animate-float-soft {
+  animation: floatSoft 5s ease-in-out infinite;
+}
+
+/* 3. WhatsApp Pulse Wave Animation */
+@keyframes pulseWave {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+.pulse-whatsapp {
+  animation: pulseWave 2.2s infinite;
+}
+
+/* 4. Transisi Slide Carousel */
+.carousel-track {
+  display: flex;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+/* 5. Hover Lift Effect pada Kartu */
+.service-card {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.service-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 30px -10px rgba(21, 128, 61, 0.15) !important;
+}
+
 </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-uibn-yellow selection:text-uibn-darkgreen">
@@ -193,7 +276,7 @@ html {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <!-- Left Column: Copywriting -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal-left">
           
           <div class="inline-flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-full border border-emerald-200 shadow-sm text-xs font-bold text-uibn-darkgreen">
             <span class="w-2.5 h-2.5 rounded-full bg-uibn-yellow"></span>
@@ -237,7 +320,7 @@ html {
         </div>
 
         <!-- Right Column: Visual Card -->
-        <div class="lg:col-span-5 relative">
+        <div class="lg:col-span-5 relative reveal-right animate-float-soft">
           <div class="bg-white rounded-3xl p-6 shadow-xl border border-emerald-100 relative overflow-hidden">
             <!-- Background accent banner -->
             <div class="h-28 -mx-6 -mt-6 bg-gradient-to-r from-uibn-darkgreen via-uibn-green to-emerald-700 relative p-6 flex items-start justify-between">
@@ -300,7 +383,7 @@ html {
   <!-- ================= JAMINAN ASAS KERAHASIAAN ================= -->
   <section id="tentang" class="py-12 bg-white border-b border-emerald-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="bg-gradient-to-r from-uibn-darkgreen via-emerald-800 to-uibn-green rounded-3xl p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
+      <div class="bg-gradient-to-r from-uibn-darkgreen via-emerald-800 to-uibn-green rounded-3xl p-8 sm:p-10 text-white shadow-xl relative overflow-hidden reveal">
         
         <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div class="md:col-span-8 space-y-3">
@@ -333,7 +416,7 @@ html {
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
       <!-- Section Title -->
-      <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-12 reveal">
         <span class="text-uibn-green font-extrabold text-xs uppercase tracking-wider bg-emerald-100 px-3 py-1 rounded-full">
           Fokus Layanan
         </span>
@@ -349,7 +432,7 @@ html {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <!-- Card 1 -->
-        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-emerald-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Akademik & Skripsi">
+        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-emerald-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Akademik & Skripsi" style="transition-delay: 0.1s;">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-uibn-green flex items-center justify-center text-xl mb-4 group-hover:bg-uibn-green group-hover:text-white transition-colors">
               <i class="fas fa-book-reader"></i>
@@ -366,7 +449,7 @@ html {
         </div>
 
         <!-- Card 2 -->
-        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-yellow-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Overthinking & Emosi Pribadi">
+        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-yellow-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Overthinking & Emosi Pribadi" style="transition-delay: 0.2s;">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl mb-4 group-hover:bg-uibn-yellow group-hover:text-uibn-darkgreen transition-colors">
               <i class="fas fa-heart-broken"></i>
@@ -383,7 +466,7 @@ html {
         </div>
 
         <!-- Card 3 -->
-        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-emerald-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Pertemanan & Hubungan Sosial">
+        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-emerald-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Pertemanan & Hubungan Sosial" style="transition-delay: 0.3s;">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-uibn-green flex items-center justify-center text-xl mb-4 group-hover:bg-uibn-green group-hover:text-white transition-colors">
               <i class="fas fa-users"></i>
@@ -400,7 +483,7 @@ html {
         </div>
 
         <!-- Card 4 -->
-        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-yellow-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Arah Karir & Masa Depan">
+        <div class="service-card bg-white rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-yellow-400 group cursor-pointer hover:-translate-y-1 flex flex-col justify-between" data-topic="Arah Karir & Masa Depan" style="transition-delay: 0.4s;">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl mb-4 group-hover:bg-uibn-yellow group-hover:text-uibn-darkgreen transition-colors">
               <i class="fas fa-compass"></i>
@@ -447,11 +530,93 @@ html {
     </div>
   </section>
 
+  <!-- ================= SLIDE CAROUSEL: POJOK AFIRMASI SAHABAT ================= -->
+  <section class="py-14 bg-gradient-to-r from-emerald-950 via-uibn-darkgreen to-emerald-900 text-white overflow-hidden relative border-y border-emerald-800/60">
+    <!-- Background Animated Shapes -->
+    <div class="absolute -top-10 left-10 w-64 h-64 bg-uibn-warmyellow/15 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+    <div class="absolute -bottom-10 right-10 w-72 h-72 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 reveal">
+      
+      <div class="text-center mb-6">
+        <span class="inline-flex items-center gap-1.5 bg-uibn-warmyellow/20 text-uibn-warmyellow text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-uibn-warmyellow/30 shadow-sm">
+          <i class="fas fa-sparkles text-uibn-warmyellow"></i> Transisi Afirmasi &bull; Suara Sahabat
+        </span>
+      </div>
+
+      <!-- Carousel Frame -->
+      <div class="relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md p-6 sm:p-10 shadow-2xl">
+        <div id="affirmationTrack" class="carousel-track">
+          
+          <!-- Slide 1 -->
+          <div class="carousel-slide flex flex-col items-center text-center px-2 sm:px-6">
+            <div class="w-12 h-12 rounded-full bg-uibn-warmyellow/20 text-uibn-warmyellow flex items-center justify-center text-xl mb-4 shadow-inner">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p class="text-base sm:text-xl font-medium text-emerald-50 leading-relaxed italic max-w-2xl mb-4">
+              "Menangis atau merasa lelah bukan berarti kamu lemah. Terkadang itu adalah cara jiwa membersihkan beban agar langkahmu esok hari terasa lebih ringan."
+            </p>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-uibn-warmyellow animate-ping"></span>
+              <span class="text-xs font-bold text-uibn-warmyellow">Konselor Sebaya HMPS BKPI UIBN</span>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide flex flex-col items-center text-center px-2 sm:px-6">
+            <div class="w-12 h-12 rounded-full bg-emerald-400/20 text-emerald-300 flex items-center justify-center text-xl mb-4 shadow-inner">
+              <i class="fas fa-heart text-emerald-400"></i>
+            </div>
+            <p class="text-base sm:text-xl font-medium text-emerald-50 leading-relaxed italic max-w-2xl mb-4">
+              "Skripsi dan tugas kuliahmu pada akhirnya akan selesai. Jangan biarkan kecemasan berlebih mencuri ketenangan dan kebahagiaan masa mudamu."
+            </p>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="text-xs font-bold text-emerald-300">Dosen Pembimbing BKPI UIBN</span>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide flex flex-col items-center text-center px-2 sm:px-6">
+            <div class="w-12 h-12 rounded-full bg-uibn-warmyellow/20 text-uibn-warmyellow flex items-center justify-center text-xl mb-4 shadow-inner">
+              <i class="fas fa-feather-alt text-uibn-warmyellow"></i>
+            </div>
+            <p class="text-base sm:text-xl font-medium text-emerald-50 leading-relaxed italic max-w-2xl mb-4">
+              "Ingat firman-Nya: 'Sesungguhnya bersama kesulitan ada kemudahan.' Kamu sudah berjuang sangat hebat sampai hari ini, peluk dirimu dengan hangat."
+            </p>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-uibn-warmyellow animate-ping"></span>
+              <span class="text-xs font-bold text-uibn-warmyellow">Ruang Sahabat BKPI &bull; QS. Al-Insyirah: 6</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Slider Navigation Controls -->
+        <button id="prevSlideBtn" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-all focus:outline-none" aria-label="Slide Sebelumnya">
+          <i class="fas fa-chevron-left text-xs"></i>
+        </button>
+        <button id="nextSlideBtn" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-all focus:outline-none" aria-label="Slide Berikutnya">
+          <i class="fas fa-chevron-right text-xs"></i>
+        </button>
+
+        <!-- Slider Dots Indicator -->
+        <div class="flex items-center justify-center gap-2 mt-6">
+          <button class="slide-dot w-6 h-2 rounded-full bg-uibn-warmyellow transition-all duration-300" data-index="0"></button>
+          <button class="slide-dot w-2.5 h-2 rounded-full bg-white/30 transition-all duration-300" data-index="1"></button>
+          <button class="slide-dot w-2.5 h-2 rounded-full bg-white/30 transition-all duration-300" data-index="2"></button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- ================= CEK EMOSI & BEBAN PIKIRAN (INTERACTIVE) ================= -->
   <section id="cek-emosi" class="py-16 bg-white border-y border-slate-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center space-y-3 mb-10">
+      <div class="text-center space-y-3 mb-10 reveal">
         <span class="text-uibn-darkgreen font-extrabold text-xs uppercase tracking-wider bg-uibn-warmyellow/30 px-3 py-1 rounded-full">
           Fitur Interaktif
         </span>
@@ -606,7 +771,7 @@ html {
   <section id="reservasi" class="py-16 bg-white border-t border-slate-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-xl mx-auto space-y-2 mb-10">
+      <div class="text-center max-w-xl mx-auto space-y-2 mb-10 reveal">
         <span class="text-uibn-green font-extrabold text-xs uppercase tracking-wider bg-emerald-100 px-3 py-1 rounded-full">
           Formulir Janji Temu
         </span>
@@ -891,7 +1056,7 @@ html {
   </footer>
 
   <!-- ================= FLOATING WHATSAPP CHAT BUTTON ================= -->
-  <a href="https://wa.me/62882006744363?text=Assalamu%27alaikum%20Kak%20Sahabat%20BKPI%20UIBN%20Tegal,%20saya%20ingin%20bertanya%20mengenai%20layanan%20konseling..." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2.5 border-2 border-uibn-warmyellow transition-all hover:scale-105 group" title="Chat Langsung via WhatsApp">
+  <a href="https://wa.me/62882006744363?text=Assalamu%27alaikum%20Kak%20Sahabat%20BKPI%20UIBN%20Tegal,%20saya%20ingin%20bertanya%20mengenai%20layanan%20konseling..." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2.5 border-2 border-uibn-warmyellow transition-all hover:scale-105 group pulse-whatsapp" title="Chat Langsung via WhatsApp">
     <div class="w-8 h-8 bg-white text-emerald-600 rounded-full flex items-center justify-center text-lg shadow-sm">
       <i class="fab fa-whatsapp"></i>
     </div>
@@ -1267,6 +1432,97 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // 9. ANIMASI ELEMEN BERGERAK SAAT DI-SCROLL (Scroll Reveal Observer)
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback untuk browser lama
+    revealElements.forEach(el => el.classList.add('active'));
+  }
+
+  // 10. TRANSISI SLIDE OTOMATIS & MANUAL (Pojok Afirmasi Sahabat BKPI)
+  const track = document.getElementById('affirmationTrack');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.slide-dot');
+  const prevBtn = document.getElementById('prevSlideBtn');
+  const nextBtn = document.getElementById('nextSlideBtn');
+
+  if (track && slides.length > 0) {
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let autoSlideTimer = null;
+
+    function goToSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+      track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+      dots.forEach((dot, idx) => {
+        if (idx === currentSlide) {
+          dot.classList.add('bg-uibn-warmyellow', 'w-6');
+          dot.classList.remove('bg-white/30', 'w-2.5');
+        } else {
+          dot.classList.remove('bg-uibn-warmyellow', 'w-6');
+          dot.classList.add('bg-white/30', 'w-2.5');
+        }
+      });
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      autoSlideTimer = setInterval(() => {
+        goToSlide(currentSlide + 1);
+      }, 5000);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = null;
+      }
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+        startAutoSlide();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+        startAutoSlide();
+      });
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.getAttribute('data-index') || '0');
+        goToSlide(idx);
+        startAutoSlide();
+      });
+    });
+
+    track.addEventListener('mouseenter', stopAutoSlide);
+    track.addEventListener('mouseleave', startAutoSlide);
+
+    // Jalankan slide otomatis pertama kali
+    goToSlide(0);
+    startAutoSlide();
+  }
 
   // Helper Sanitasi HTML
   function escapeHtml(string) {
